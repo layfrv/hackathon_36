@@ -58,6 +58,7 @@
         "allow": "single-child"
       }
     ],
+    "react/prop-types": 0,
     "jsx-child-element-spacing": 0,
     "react/jsx-closing-bracket-location": [
       "error",
