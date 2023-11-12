@@ -2,11 +2,11 @@ import React from 'react';
 import './Button.css';
 
 export default function Button(props) {
-  const {onClick, label} = props;
-    
+  const { onClick, label } = props;
+
   return (
     <button
-      className='button'
+      className='__button'
       type='submit'
       onClick={onClick}
     >
