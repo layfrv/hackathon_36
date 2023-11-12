@@ -1,0 +1,29 @@
+.game-page {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px 30px;
+}
+
+.game-page__header {
+  text-align: center;
+}
+
+.game-page__playground {
+  margin-top: 40px;
+}
+
+.game-page__playground_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.game-page__playground_cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
