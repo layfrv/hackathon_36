@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import catUrl from '../../assets/images/cat1_brgfx.jpg';
+import { data } from '../../assets/cards';
+import Button from '../../components/Button';
 import MemoryCard from '../../components/MemoryCard/MemoryCard';
 import Timer from '../../components/TimerComponent/Timer';
 import { createCardsArray } from '../../utils/createCardsArray';
 import './GamePage.css';
-
-const data = [
-  {name: 'cat', image: catUrl,  }, {name: '3', image: catUrl,  }, {  name: '4', image: catUrl}, { name: 'dog', image: catUrl}, { name: '2', image: catUrl}, {  name: '6', image: catUrl}, 
-  { name: 'mouse', image: catUrl}, {  name: '1', image: catUrl}, {  name: 66, image: catUrl}, {  name: '2', image: catUrl}, {  name: '8', image: catUrl},
-  {  name: '9', image: catUrl}, {  name: '4', image: catUrl}
-];
 
 function GamePage() {  
   const cardsArray = createCardsArray(data, 12);
@@ -25,8 +20,6 @@ function GamePage() {
       return;
     }
 
-    console.log('check!');
-
     if (firstCard.name === secondCard.name) {
       setOpenedCards((prev) => [...prev, firstCard.name]);
     }
@@ -36,7 +29,6 @@ function GamePage() {
       setSecondCard(null);
     }, 1000);
     console.log('success!');
-    
   }, [firstCard, secondCard]);
 
   const handleCardClick = (index) => {
@@ -59,6 +51,9 @@ function GamePage() {
   const resetGame = () => {
     setCards(cardsArray);
     setScore(0);
+    setFirstCard(null);
+    setSecondCard(null);
+    setOpenedCards([]);
   };
   
   return (
@@ -72,7 +67,6 @@ function GamePage() {
         <div className='game-page__playground_header'>
           <p>
             Игрок
-            {' '}
           </p>
           <Timer />
           <p>
@@ -86,9 +80,10 @@ function GamePage() {
             key={index} onClick={handleCardClick} isFlipped={firstCard?.id === card.id || secondCard?.id === card.id || openedCards.includes(card.name)}
           />)}
         </div>
+         
+        {/* <Button label={'Начать заново'} onClick={resetGame} /> */}
+       
       </div>
-
-      <button onClick={resetGame} style={{backgroundColor: 'gray'}}>reset</button>
     </div>
   );
 }

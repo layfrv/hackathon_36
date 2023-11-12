@@ -8,8 +8,7 @@ function MemoryCard(props) {
       <div className='memory-card__front' >
       </div>
       <div className='memory-card__back'>
-        {/* <img src={imageUrl} alt={name} className='memory-card__image'/> */}
-        <h1>{name}</h1>
+        <img src={imageUrl} alt={name} className='memory-card__image'/>
       </div>
     </div>
   );

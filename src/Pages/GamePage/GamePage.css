@@ -3,7 +3,8 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  padding: 20px 30px;
+  padding: 10px 50px;
+  overflow-x: hidden;
 }
 
 .game-page__header {
@@ -11,7 +12,7 @@
 }
 
 .game-page__playground {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .game-page__playground_header {
@@ -25,5 +26,5 @@
   flex-wrap: wrap;
   gap: 16px;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 20px;
 }
