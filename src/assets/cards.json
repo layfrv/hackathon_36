@@ -1,6 +1,231 @@
 [
   {
-    "image": "../assets/images/",
-    "name": ""
+    "image": "../assets/images/alien_brgfx.jpg",
+    "name": "пришелец"
+  }
+
+  {
+    "image": "../assets/images/birthday_cake_macrovector.jpg",
+    "name": "торт"
+  }
+
+  {
+    "image": "../assets/images/blue_bear_macrovector.jpg",
+    "name": "медведь в синем"
+  }
+
+  {
+    "image": "../assets/images/cat1_brgfx.jpg",
+    "name": "серый котик"
+  }
+
+  {
+    "image": "../assets/images/cat2_brgfx.jpg",
+    "name": "рыжий котик"
+  }
+
+  {
+    "image": "../assets/images/cat3_brgfx.jpg",
+    "name": "белый котик"
+  }
+
+  {
+    "image": "../assets/images/cat4_brgfx.jpg",
+    "name": "трёхцветный котик"
+  }
+
+  {
+    "image": "../assets/images/cupcake_brgfx.jpg",
+    "name": "капкейк"
+  }
+
+  {
+    "image": "../assets/images/dog1_brgfx.jpg",
+    "name": "пятнистый щенок"
+  }
+
+  {
+    "image": "../assets/images/dog2_brgfx.jpg",
+    "name": "рыжий щенок"
+  }
+
+  {
+    "image": "../assets/images/dog3_brgfx.jpg",
+    "name": "золотой щенок"
+  }
+
+  {
+    "image": "../assets/images/dog4_brgfx.jpg",
+    "name": "чёрный щенок"
+  }
+
+  {
+    "image": "../assets/images/drum_vectorgraphit.jpg",
+    "name": "барабан"
+  }
+
+  {
+    "image": "../assets/images/fairy_brgfx.jpg",
+    "name": "фея"
+  }
+
+  {
+    "image": "../assets/images/hot_air_balloon_blue_pchVector.jpg",
+    "name": "синий шар"
+  }
+
+  {
+    "image": "../assets/images/hot_air_balloon_checkered_pchVector.jpg",
+    "name": "красный шар"
+  }
+
+  {
+    "image": "../assets/images/hot_air_balloon_rainbow_pchVector.jpg",
+    "name": "радужный шар"
+  }
+
+  {
+    "image": "../assets/images/icecream_berry_macrovector.jpg",
+    "name": "ягодное мороженое"
+  }
+
+  {
+    "image": "../assets/images/icecream_green_macrovector.jpg",
+    "name": "зелёное мороженое"
+  }
+
+  {
+    "image": "../assets/images/icecream_two_flavour_macrovector.jpg",
+    "name": "мороженое"
+  }
+
+  {
+    "image": "../assets/images/kite_freepik.jpg",
+    "name": "воздушный змей"
+  }
+
+  {
+    "image": "../assets/images/lolly_green_macrovector.jpg",
+    "name": "фруктовый леденец"
+  }
+
+  {
+    "image": "../assets/images/lolly_green2_macrovector.jpg",
+    "name": "зелёный леденец"
+  }
+
+  {
+    "image": "../assets/images/lolly_orange_macrovector.jpg",
+    "name": "апельсиновый леденец"
+  }
+
+  {
+    "image": "../assets/images/lolly_pink_macrovector.jpg",
+    "name": "ярко-розовый леденец"
+  }
+
+  {
+    "image": "../assets/images/lolly_pink2_macrovector.jpg",
+    "name": "розовый леденец"
+  }
+
+  {
+    "image": "../assets/images/lolly_red_macrovector.jpg",
+    "name": "красный леденец"
+  }
+
+  {
+    "image": "../assets/images/monkey_brgfx.jpg",
+    "name": "обезьянка"
+  }
+
+  {
+    "image": "../assets/images/native_american_brgfx.jpg",
+    "name": "индеец"
+  }
+
+  {
+    "image": "../assets/images/nemo_freepik.jpg",
+    "name": "Немо"
+  }
+
+  {
+    "image": "../assets/images/pirate_ship_brgfx.jpg",
+    "name": "пиратский корабль"
+  }
+
+  {
+    "image": "../assets/images/red_bear_macrovector.jpg",
+    "name": "медведь в красном"
+  }
+
+  {
+    "image": "../assets/images/robot_brgfx.jpg",
+    "name": "робот"
+  }
+
+  {
+    "image": "../assets/images/rocket_rawpixel.jpg",
+    "name": "ракета"
+  }
+
+  {
+    "image": "../assets/images/russian_doll1_macrovector.jpg",
+    "name": "матрёшка 1"
+  }
+
+  {
+    "image": "../assets/images/russian_doll2_macrovector.jpg",
+    "name": "матрёшка 2"
+  }
+
+  {
+    "image": "../assets/images/russian_doll3_macrovector.jpg",
+    "name": "матрёшка 3"
+  }
+
+  {
+    "image": "../assets/images/russian_doll4_macrovector.jpg",
+    "name": "матрёшка 4"
+  }
+
+  {
+    "image": "../assets/images/russian_doll5_macrovector.jpg",
+    "name": "матрёшка 5"
+  }
+
+  {
+    "image": "../assets/images/russian_doll6_macrovector.jpg",
+    "name": "матрёшка 6"
+  }
+
+  {
+    "image": "../assets/images/russian_doll7_macrovector.jpg",
+    "name": "матрёшка 7"
+  }
+
+  {
+    "image": "../assets/images/russian_doll8_macrovector.jpg",
+    "name": "матрёшка 8"
+  }
+
+  {
+    "image": "../assets/images/russian_doll9_macrovector.jpg",
+    "name": "матрёшка 9"
+  }
+
+  {
+    "image": "../assets/images/treasure_island_brgfx.jpg",
+    "name": "остров сокровищ"
+  }
+
+  {
+    "image": "../assets/images/treehouse_brgfx.jpg",
+    "name": "дерево"
+  }
+
+  {
+    "image": "../assets/images/xilophone_brgfx.jpg",
+    "name": "ксилофон"
   }
 ]
