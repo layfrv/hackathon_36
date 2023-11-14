@@ -3,22 +3,26 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  padding: 10px 50px;
+  padding: 15px 50px 40px;
   overflow-x: hidden;
 }
 
 .game-page__header {
-  text-align: center;
+  text-align: center
 }
 
 .game-page__playground {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .game-page__playground_header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .game-page__playground_cards {
@@ -27,4 +31,5 @@
   gap: 16px;
   justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 30px;
 }

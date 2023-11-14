@@ -1,4 +1,4 @@
-export const data = [
+export const images = [
   {
     'image': '/images/alien_brgfx.jpg',
     'name': 'alien'

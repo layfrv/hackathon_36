@@ -6,7 +6,7 @@ export default function Button(props) {
 
   return (
     <button
-      className='__button'
+      className='button'
       type='submit'
       onClick={onClick}
     >

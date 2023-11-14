@@ -1,11 +1,11 @@
 .memory-card {
-  width: 190px;
-  height: 246px;
+  width: 180px;
+  height: 236px;
   background-image: url("../../../public/images/card-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border: 6px solid yellow;
   border-radius: 20px;
+  box-shadow: rgb(149 157 165 / 10%) 0 4px 14px;
   transform-style: preserve-3d;
   perspective: 1000px;
   cursor: pointer;
@@ -28,14 +28,16 @@
 }
 
 .memory-card__back {
+  display: flex;
+  align-items: center;
   background-color: white;
   border-radius: 20px;
   transform: rotateY(180deg);
 }
 
 .memory-card__image {
-  width: 95%;
-  height: 95%;
+  width: 90%;
+  height: 90%;
   margin: 1px auto;
   object-fit: contain;
   border-radius: 20px;

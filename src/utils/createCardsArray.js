@@ -11,5 +11,7 @@ export function createCardsArray(data, cardsCount) {
     cards.push(card);
   }
 
-  return [...cards, ...cards].flat();
+  const result = [...cards, ...cards].flat().sort(() => Math.random() - 0.5).map((card, index) => ({...card, isFlipped: false, id: index}));
+
+  return result;
 }

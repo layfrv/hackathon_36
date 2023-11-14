@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { data } from '../../assets/cards';
+import { images } from '../../assets/cards';
 import Button from '../../components/Button';
 import MemoryCard from '../../components/MemoryCard/MemoryCard';
 import Timer from '../../components/TimerComponent/Timer';
@@ -7,10 +7,10 @@ import { createCardsArray } from '../../utils/createCardsArray';
 import './GamePage.css';
 
 function GamePage() {  
-  const cardsArray = createCardsArray(data, 12);
-  const cardsData = cardsArray.map((card, index) => ({...card, isFlipped: false, id: index}));
-  const [openedCards, setOpenedCards] = useState([]);
+  const cardsData = createCardsArray(images, 12);
+  
   const [cards, setCards] = useState(cardsData);
+  const [openedCards, setOpenedCards] = useState([]);
   const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
   const [score, setScore] = useState(0);
@@ -28,32 +28,36 @@ function GamePage() {
       setFirstCard(null);
       setSecondCard(null);
     }, 1000);
-    console.log('success!');
   }, [firstCard, secondCard]);
 
-  const handleCardClick = (index) => {
-    let chosenCard = cards[index];
-    
-    chosenCard.isFlipped = true;
+  const handleCardClick = (id) => {
+    let chosenCard = cards[id];
     
     if (!firstCard) {
       setFirstCard(chosenCard);
+      chosenCard.isFlipped = true;
       return;
     } 
 
     if (!secondCard) {
+      if (chosenCard.id === firstCard.id) {
+        return;
+      }
       setSecondCard(chosenCard);
+      chosenCard.isFlipped = true;
       setScore((value) => value + 1);
       return;
     }
   };
   
   const resetGame = () => {
-    setCards(cardsArray);
     setScore(0);
     setFirstCard(null);
     setSecondCard(null);
     setOpenedCards([]);
+    setTimeout(() => {
+      setCards(cardsData);
+    }, 1000);
   };
   
   return (
@@ -81,7 +85,7 @@ function GamePage() {
           />)}
         </div>
          
-        {/* <Button label={'Начать заново'} onClick={resetGame} /> */}
+        <Button label={'Начать заново'} onClick={resetGame} />
        
       </div>
     </div>
