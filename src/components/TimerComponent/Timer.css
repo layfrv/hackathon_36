@@ -1,0 +1,29 @@
+.timer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  margin-left: 40px;
+  padding: 10px 30px;
+  color: white;
+  font-weight: 800;
+  font-family: Orbitron, sans-serif;
+  letter-spacing: 4px;
+  background-color: rgb(174 232 255);
+  border-radius: 10px;
+}
+
+.timer-value {
+  display: block;
+  flex-shrink: 0;
+  width: 30px;
+  text-align: center;
+}
+
+
+@media screen and (width < 500px) {
+  .timer {
+    margin-left: 0;
+  }
+}

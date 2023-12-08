@@ -1,5 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.css';
-import GamePage from './Pages/GamePage/GamePage';
+import Loader from './components/Loader';
+import GamePage from './pages/GamePage';
 
 function App() {
   return (

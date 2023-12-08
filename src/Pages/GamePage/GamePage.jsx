@@ -1,26 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { images } from '../../assets/cards';
 import Button from '../../components/Button';
+import FinishModal from '../../components/FinishModal';
+import FirstModal from '../../components/FirstModal';
 import MemoryCard from '../../components/MemoryCard/MemoryCard';
 import Timer from '../../components/TimerComponent/Timer';
+import { finishGame, startGame } from '../../features/gameSlice';
+import { addToLeaderboard, saveScore, saveTime, saveLastResult } from '../../features/resultSlice';
 import { createCardsArray } from '../../utils/createCardsArray';
 import './GamePage.css';
 
-function GamePage() {  
+function GamePage() {
   const cardsData = createCardsArray(images, 12);
-  
+  const [isOpenFirstModal, setOpenFirstModal] = useState(false);
+  const [isOpenFinishModal, setOpenFinishModal] = useState(false);
   const [cards, setCards] = useState(cardsData);
   const [openedCards, setOpenedCards] = useState([]);
   const [firstCard, setFirstCard] = useState(null);
   const [secondCard, setSecondCard] = useState(null);
   const [score, setScore] = useState(0);
-  
-  React.useEffect(() => {
+  const [isStartedStopwatch, setStartStopwatch] = useState(false);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  const userName = useSelector(state => state.user.name);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!userName) {
+      setOpenFirstModal(true);
+    } else {
+      setOpenFirstModal(false);
+      setMinutes(0);
+      setSeconds(0);
+      dispatch(startGame());
+      setStartStopwatch(true);
+    }
+  }, [userName]);
+
+  useEffect(() => {
     if (!firstCard || !secondCard) {
       return;
     }
 
     if (firstCard.name === secondCard.name) {
+      firstCard.isAnimate = true;
+      secondCard.isAnimate = true;
       setOpenedCards((prev) => [...prev, firstCard.name]);
     }
 
@@ -29,15 +55,26 @@ function GamePage() {
       setSecondCard(null);
     }, 1000);
   }, [firstCard, secondCard]);
+  
+  useEffect(() => {
+    if (openedCards.length === cardsData.length / 2) {
+      setStartStopwatch(false);
+      dispatch(finishGame());
+      dispatch(saveTime({minutes, seconds}));
+      dispatch(saveScore(score));
+      dispatch(addToLeaderboard(userName));
+      setTimeout(() => setOpenFinishModal(true), 1500);
+    }
+  }, [openedCards]);
 
   const handleCardClick = (id) => {
     let chosenCard = cards[id];
-    
+
     if (!firstCard) {
       setFirstCard(chosenCard);
       chosenCard.isFlipped = true;
       return;
-    } 
+    }
 
     if (!secondCard) {
       if (chosenCard.id === firstCard.id) {
@@ -49,8 +86,10 @@ function GamePage() {
       return;
     }
   };
-  
+
   const resetGame = () => {
+    setStartStopwatch(false);
+    dispatch(finishGame());
     setScore(0);
     setFirstCard(null);
     setSecondCard(null);
@@ -58,10 +97,16 @@ function GamePage() {
     setTimeout(() => {
       setCards(cardsData);
     }, 1000);
+    setOpenFinishModal(false);
+    setMinutes(0);
+    setSeconds(0);
+    setStartStopwatch(true);
   };
-  
+
   return (
     <div className='game-page'>
+      {isOpenFirstModal && <FirstModal closeModal={() => setOpenFirstModal(false)} />}
+      {isOpenFinishModal && <FinishModal closeModal={resetGame} />}
       <div className='game-page__header'>
         <h1>Найди друга 🎈</h1>
         <p>Кликай на карточку и найди ей пару</p>
@@ -70,23 +115,36 @@ function GamePage() {
       <div className='game-page__playground'>
         <div className='game-page__playground_header'>
           <p>
-            Игрок
+            Игрок:
+            {' '}
+            {userName}
           </p>
-          <Timer />
+          <Timer isStarted={isStartedStopwatch} seconds={seconds} minutes={minutes} setMinutes={setMinutes} setSeconds={setSeconds} />
           <p>
-            Количество ходов: 
+            Количество ходов:
+            {' '}
             {score}
           </p>
         </div>
         <div className='game-page__playground_cards'>
-          {cards.map((card, index) => <MemoryCard imageUrl={card.image}
-            name={card.name} id={card.id}
-            key={index} onClick={handleCardClick} isFlipped={firstCard?.id === card.id || secondCard?.id === card.id || openedCards.includes(card.name)}
-          />)}
+          {cards.map((card, index) => (
+            <MemoryCard
+              imageUrl={card.image}
+              name={card.name}
+              id={card.id}
+              key={index}
+              onClick={handleCardClick}
+              isFlipped={
+                firstCard?.id === card.id ||
+                secondCard?.id === card.id ||
+                openedCards.includes(card.name)
+              }
+              isAnimate={card.isAnimate}
+            />
+          ))}
         </div>
-         
+
         <Button label={'Начать заново'} onClick={resetGame} />
-       
       </div>
     </div>
   );

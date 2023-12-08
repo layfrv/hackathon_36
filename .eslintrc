@@ -49,6 +49,7 @@
       2,
       2
     ],
+    "no-export-default": "off",
     "react/no-unused-prop-types": "off",
     "react/default-props-match-prop-types": "off",
     "react/sort-comp": "off",

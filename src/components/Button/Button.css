@@ -11,11 +11,16 @@
   background-color: #FFF1D7;
   border: #373737;
   border-radius: 0.7rem;
-  box-shadow: rgb(149 157 165 / 10%) 0 4px 14px;
   transition: ease-in-out 0.2s;
 }
 
 .button:hover {
-  background-color: #ffe8bc;
+  background-color: #ffd991;
   transition: ease-in-out 0.2s;
+}
+
+@media screen and (width < 400px) {
+  .button {
+    width: 100%;
+  }
 }

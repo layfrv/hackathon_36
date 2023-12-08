@@ -1,7 +1,8 @@
 .memory-card {
-  width: 180px;
-  height: 236px;
-  background-image: url("../../../public/images/card-background.jpg");
+  position: relative;
+  width: 15%;
+  height: 200px;
+  background-image: url("../../../public/images/card-background.png");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 20px;
@@ -12,11 +13,30 @@
   transition: all 0.5s ease-in-out;
 }
 
+@media screen and (width < 850px) {
+  .memory-card {
+    width: 22%;
+  }
+}
+
+@media screen and (width < 600px) {
+  .memory-card {
+    width: 30%;
+    height: 160px;
+  }
+}
+
+@media screen and (width < 400px) {
+  .memory-card {
+    width: 45%;
+  }
+}
+
 .memory-card__open {
   transform: rotateY(180deg);
 }
 
-.memory-card__front, .memory-card__back  {
+.memory-card__front, .memory-card__back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -41,4 +61,41 @@
   margin: 1px auto;
   object-fit: contain;
   border-radius: 20px;
+}
+
+.like-element {
+  position: absolute;
+  left: 45%;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  animation: like-animation 1.1s ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes like-animation {
+  0% {
+    bottom: 45%;
+    left: 45%;
+    transform: scale(0.1);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 100%;
+    left: 100%;
+    transform: scale(0);
+    opacity: 0
+  }
 }

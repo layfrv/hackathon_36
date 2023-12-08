@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  min-width: 300px;
 }
 
 .app__header {
@@ -12,4 +13,18 @@
   justify-content: center;
   width: 100%;
   height: 100px;
+}
+
+.modal-wrapper {
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 20px;
+  overflow: hidden;
+  background-color: rgb(0 0 0 / 60%);
+  inset: 0;
+  transition: all 0.4s ease-in-out;
 }
