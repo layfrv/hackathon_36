@@ -12,7 +12,7 @@ import { createCardsArray } from '../../utils/createCardsArray';
 import './GamePage.css';
 
 function GamePage() {
-  const cardsData = createCardsArray(images, 2);
+  const cardsData = createCardsArray(images, 12);
   const [isOpenFirstModal, setOpenFirstModal] = useState(false);
   const [isOpenFinishModal, setOpenFinishModal] = useState(false);
   const [cards, setCards] = useState(cardsData);
