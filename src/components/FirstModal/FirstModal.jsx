@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { startGame } from '../../features/gameSlice';
 import { saveName } from '../../features/userSlice';
 import Button from '../Button';
 import './FirstModal.css';
 
-function FirstModal({closeModal}) {  
+function FirstModal({closeModal, isOpen}) {  
   const dispatch = useDispatch();
   const [nameValue, setNameValue] = useState();
   const changeNameValue = (e) => {
@@ -19,10 +19,26 @@ function FirstModal({closeModal}) {
       dispatch(startGame());
     }
   };
+
+  const modalRef = useRef(null);
+  const modalWrapperRef = useRef(null);
   
+  useEffect(() => {
+    if (isOpen) {
+      if (modalWrapperRef.current) {
+        modalWrapperRef.current.classList.add('wrapper-show');
+      }
+      setTimeout(() => {
+        if (modalRef.current) {
+          modalRef.current.classList.add('opened-modal');
+        }
+      }, 500);
+    }
+  }, [isOpen, closeModal]);
+
   return (
-    <div className='modal-wrapper'>
-      <div className='first-modal'>
+    <div ref={modalWrapperRef} className='modal-wrapper'>
+      <div ref={modalRef} className='first-modal'>
         <h2>Приветствуем в игре Найди друга :)</h2>
         <div className='first-modal__input-wrapper'>
           <p>Как тебя зовут?</p>

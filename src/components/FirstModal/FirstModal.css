@@ -9,12 +9,17 @@
   padding: 50px 30px;
   background-color: white;
   border-radius: 20px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 
 .first-modal h2 {
   text-align: center;
 }
 
+.first-modal.opened-modal {
+  opacity: 1;
+}
 
 .first-modal__input-wrapper {
   display: flex;

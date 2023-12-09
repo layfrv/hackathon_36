@@ -1,22 +1,32 @@
 .finish-modal {
   position: fixed;
-  display: flex;
+  top: 0;
+  display: none;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   justify-content: space-between;
-  width: 45%;
+  width: 40%;
   min-width: 400px;
+  max-width: 550px;
   height: max-content;
   min-height: 350px;
-  padding: 30px 40px;
+  padding: 30px 50px;
   background-color: #FFF;
   background-image: url('../../../public/images/rabbit-with-balloons.png');
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 100%;
   border-radius: 20px;
-  transition: opacity 300ms ease-in-out;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.finish-modal.opened-modal {
+  position: fixed;
+  top: 150px;
+  display: flex;
+  opacity: 1;
 }
 
 .finish-modal__headline {
@@ -29,7 +39,8 @@
 
 .table-wrapper {
   flex-grow: 1;
-  width: 90%;
+  width: 100%;
+  margin-left: 30px;
 }
 
 .finish-modal__leaderboard {
@@ -51,6 +62,8 @@ th.finish-modal__leaderboard_headline {
   color: black;
   font-weight: 400;
   font-size: medium;
+  text-align: center;
+
 }
 
 .finish-modal__leaderboard th, td {
@@ -81,6 +94,7 @@ th.finish-modal__leaderboard_headline {
 @media screen and (width < 800px) {
   .finish-modal {
     width: 60%;
+    background-size: 25%;
   }
 }
 
@@ -89,6 +103,5 @@ th.finish-modal__leaderboard_headline {
     width: 90%;
     min-width: 300px;
     padding: 30px 20px;
-    background-size: 30%;
   }
 }

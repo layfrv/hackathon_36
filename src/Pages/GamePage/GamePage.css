@@ -1,6 +1,7 @@
 .game-page {
   display: flex;
   flex-direction: column;
+  gap: 30px;
   width: 100vw;
   max-width: 1200px;
   max-height: 100vh;
@@ -20,7 +21,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3%;
 }
 
 .game-page__playground_header {
@@ -48,12 +48,20 @@
 }
 
 @media screen and (width < 650px) {
+  .game-page {
+    gap: 15px;
+  }
+
   .game-page__playground {
     margin-top: 6%
   }
 }
 
 @media screen and (width < 550px) {
+  .game-page {
+    gap: 0;
+  }
+
   .game-page__header {
     text-align: left;
   }

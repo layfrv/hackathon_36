@@ -7,12 +7,12 @@ import FirstModal from '../../components/FirstModal';
 import MemoryCard from '../../components/MemoryCard/MemoryCard';
 import Timer from '../../components/TimerComponent/Timer';
 import { finishGame, startGame } from '../../features/gameSlice';
-import { addToLeaderboard, saveScore, saveTime, saveLastResult } from '../../features/resultSlice';
+import { addToLeaderboard, saveScore } from '../../features/resultSlice';
 import { createCardsArray } from '../../utils/createCardsArray';
 import './GamePage.css';
 
 function GamePage() {
-  const cardsData = createCardsArray(images, 12);
+  const cardsData = createCardsArray(images, 2);
   const [isOpenFirstModal, setOpenFirstModal] = useState(false);
   const [isOpenFinishModal, setOpenFinishModal] = useState(false);
   const [cards, setCards] = useState(cardsData);
@@ -21,8 +21,7 @@ function GamePage() {
   const [secondCard, setSecondCard] = useState(null);
   const [score, setScore] = useState(0);
   const [isStartedStopwatch, setStartStopwatch] = useState(false);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
+  const [resetTime, setResetTime] = useState(false);
 
   const userName = useSelector(state => state.user.name);
   const dispatch = useDispatch();
@@ -32,8 +31,7 @@ function GamePage() {
       setOpenFirstModal(true);
     } else {
       setOpenFirstModal(false);
-      setMinutes(0);
-      setSeconds(0);
+      setResetTime(true);
       dispatch(startGame());
       setStartStopwatch(true);
     }
@@ -60,10 +58,9 @@ function GamePage() {
     if (openedCards.length === cardsData.length / 2) {
       setStartStopwatch(false);
       dispatch(finishGame());
-      dispatch(saveTime({minutes, seconds}));
       dispatch(saveScore(score));
       dispatch(addToLeaderboard(userName));
-      setTimeout(() => setOpenFinishModal(true), 1500);
+      setOpenFinishModal(true);
     }
   }, [openedCards]);
 
@@ -98,15 +95,14 @@ function GamePage() {
       setCards(cardsData);
     }, 1000);
     setOpenFinishModal(false);
-    setMinutes(0);
-    setSeconds(0);
+    setResetTime(true);
     setStartStopwatch(true);
   };
 
   return (
     <div className='game-page'>
-      {isOpenFirstModal && <FirstModal closeModal={() => setOpenFirstModal(false)} />}
-      {isOpenFinishModal && <FinishModal closeModal={resetGame} />}
+      {isOpenFirstModal && <FirstModal isOpen={isOpenFirstModal} closeModal={() => setOpenFirstModal(false)} />}
+      {isOpenFinishModal && <FinishModal isOpen={isOpenFinishModal} closeModal={resetGame} />}
       <div className='game-page__header'>
         <h1>Найди друга 🎈</h1>
         <p>Кликай на карточку и найди ей пару</p>
@@ -119,7 +115,7 @@ function GamePage() {
             {' '}
             {userName}
           </p>
-          <Timer isStarted={isStartedStopwatch} seconds={seconds} minutes={minutes} setMinutes={setMinutes} setSeconds={setSeconds} />
+          <Timer isStarted={isStartedStopwatch} resetTime={resetTime} setResetTime={setResetTime}/>
           <p>
             Количество ходов:
             {' '}

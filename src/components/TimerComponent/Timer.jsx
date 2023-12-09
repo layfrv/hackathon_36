@@ -1,36 +1,40 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { saveTime } from '../../features/resultSlice';
 import './Timer.css';
 
-function Timer({isStarted, minutes, seconds, setMinutes, setSeconds}) {  
+function Timer({isStarted, resetTime, setResetTime}) {  
+  const [seconds, setSeconds] = useState(0);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (resetTime) {
+      setSeconds(0);
+      setResetTime(false);
+    }
+  }, [resetTime, setResetTime]);
 
   useEffect(() => {
     if (isStarted) {
       let timer = setInterval(() => {
         setSeconds((prev) => prev += 1);
-        if (seconds === 59) {
-          setMinutes((prev) => prev += 1);
-          setSeconds(0);
-        }
       }, 1000);
-      dispatch(saveTime({minutes, seconds}));
+      dispatch(saveTime(seconds));
       
       return () => {
         clearInterval(timer);
       };
     }
-  }, [isStarted, seconds, minutes]);
+  }, [isStarted, seconds]);
 
   return (
     <div className='timer'>
       <span className='timer-value'>  
-        {minutes}
+        {Math.trunc(seconds / 60)}
       </span>
       <span className='timer-value'>:</span>
       <span className='timer-value'>      
-        {seconds}
+        {seconds % 60}
       </span> 
     </div>
   );

@@ -31,7 +31,7 @@ const resultSlice = createSlice({
       state.score = action.payload;
     },
     addToLeaderboard: (state, action) => {
-      if (state.leaderboard.length > 10) {
+      if (state.leaderboard.length >= 10) {
         state.leaderboard = [];
       }
       let result = {name: action.payload, score: state.score, time: state.time};
