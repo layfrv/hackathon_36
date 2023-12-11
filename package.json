@@ -2,6 +2,7 @@
   "name": "hackathon",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://layfrv.github.io/memory-card_game_36",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
