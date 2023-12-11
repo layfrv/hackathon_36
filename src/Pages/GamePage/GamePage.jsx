@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { images } from '../../assets/cards';
+import { images } from '../../cards';
 import Button from '../../components/Button';
 import FinishModal from '../../components/FinishModal';
 import FirstModal from '../../components/FirstModal';
