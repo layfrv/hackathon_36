@@ -105,7 +105,7 @@ function GamePage() {
       {isOpenFinishModal && <FinishModal isOpen={isOpenFinishModal} closeModal={resetGame} />}
       <div className='game-page__header'>
         <h1>Найди друга 🎈</h1>
-        <p>Кликай на карточку и найди ей пару</p>
+        <p>Кликай на карточку и найди ей пару 🙈</p>
       </div>
 
       <div className='game-page__playground'>

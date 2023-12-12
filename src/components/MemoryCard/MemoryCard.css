@@ -1,3 +1,4 @@
+/* stylelint-disable property-no-vendor-prefix */
 .memory-card {
   position: relative;
   width: 15%;
@@ -7,6 +8,7 @@
   background-size: cover;
   border-radius: 20px;
   box-shadow: rgb(149 157 165 / 10%) 0 4px 14px;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 1000px;
   cursor: pointer;
@@ -44,6 +46,7 @@
 }
 
 .memory-card__front {
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -52,6 +55,7 @@
   align-items: center;
   background-color: white;
   border-radius: 20px;
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 

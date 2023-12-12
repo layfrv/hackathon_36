@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   width: 150px;
-  margin-left: 40px;
+  margin-left: 70px;
   padding: 10px 30px;
   color: white;
   font-weight: 800;
@@ -22,7 +22,7 @@
 }
 
 
-@media screen and (width < 500px) {
+@media screen and (width < 550px) {
   .timer {
     margin-left: 0;
   }
